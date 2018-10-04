@@ -8,6 +8,7 @@ public class BackObjectRotator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		gameObject.transform.Rotate ( 0, 0, Random.Range ( -360, 360 ) );
 		RotationUnit = Random.Range ( -0.8f, 0.8f );
 	}
 	
