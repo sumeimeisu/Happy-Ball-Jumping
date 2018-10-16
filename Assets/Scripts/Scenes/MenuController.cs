@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
@@ -21,7 +22,7 @@ public class MenuController : MonoBehaviour {
 
 	public void DoPlay ()
 	{
-
+		Initiate.Fade ( "Scenes/CharSelectScene", Color.black, 0.8f );
 	}
 
 	public void DoOption ()

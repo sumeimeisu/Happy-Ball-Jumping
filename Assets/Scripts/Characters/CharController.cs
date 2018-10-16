@@ -1,12 +1,14 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Static;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharController : MonoBehaviour {
 
-	public const float MovementUnit = 1.5f;
+	[SerializeField]
+	public GameObject InGamePopupMenu;
 
-	public GameObject BoomEffect;
+	public const float MovementUnit = 1.5f;
 
 	// Use this for initialization
 	void Start () {
@@ -17,6 +19,18 @@ public class CharController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if ( Input.GetKeyUp ( KeyCode.Backspace ) || Input.GetKeyUp ( KeyCode.Escape ) )
+		{
+			if ( Time.timeScale == 0 )
+				return;
+
+			Instantiate ( InGamePopupMenu );
+
+			Time.timeScale = 0;
+			return;
+		}
+
 		Vector3 charMove = new Vector3 ();
 
 		if ( Input.GetKey ( KeyCode.W ) || Input.GetKey ( KeyCode.UpArrow ) )
@@ -40,11 +54,17 @@ public class CharController : MonoBehaviour {
 			if ( Input.GetMouseButtonDown ( 0 ) )
 			{
 				lastMousePos = Input.mousePosition;
+				lastMousePos.x = lastMousePos.x / Screen.currentResolution.width;
+				lastMousePos.y = lastMousePos.y / Screen.currentResolution.height;
+				lastMousePos *= 600;
 			}
 
 			if ( Input.GetMouseButton ( 0 ) )
 			{
 				Vector3 currentMousePos = Input.mousePosition;
+				currentMousePos.x = currentMousePos.x / Screen.currentResolution.width;
+				currentMousePos.y = currentMousePos.y / Screen.currentResolution.height;
+				currentMousePos *= 600;
 				charMove += ( currentMousePos - lastMousePos );
 				lastMousePos = currentMousePos;
 			}

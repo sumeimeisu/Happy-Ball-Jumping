@@ -39,5 +39,9 @@ public class BackObjectEmitter : MonoBehaviour {
 
 			elapsedTime -= EmittionDistance;
 		}
+
+		var myColor = gameObject.GetComponent<SpriteRenderer> ().color;
+		for ( int i = 0; i < gameObject.transform.childCount; ++i )
+			gameObject.transform.GetChild ( 0 ).GetComponent<SpriteRenderer> ().color = myColor;
 	}
 }

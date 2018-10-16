@@ -35,7 +35,7 @@ public class ShFont : MonoBehaviour {
 				case '8': component.sprite = S_8; break;
 				case '9': component.sprite = S_9; break;
 			}
-			component.sortingOrder = 192;
+			component.sortingOrder = 32762;
 
 			innerObjects [ i ] = Instantiate ( num, gameObject.transform );
 			Destroy ( num );
