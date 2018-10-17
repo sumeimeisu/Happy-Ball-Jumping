@@ -35,9 +35,11 @@ public class GameUIController : MonoBehaviour {
 		HP2.GetComponent<Image> ().fillAmount = Mathf.Max ( Mathf.Min ( InGameParameter.CharacterHitPoint - 10, 10 ), 0 ) / 10.0f;
 		HP3.GetComponent<Image> ().fillAmount = Mathf.Max ( Mathf.Min ( InGameParameter.CharacterHitPoint, 10 ), 0 ) / 10.0f;
 
+		if ( InGameParameter.CharacterChangeGage > 100 )
+			InGameParameter.CharacterChangeGage = 100;
 		Gage.GetComponent<Image> ().fillAmount = InGameParameter.CharacterChangeGage / 100.0f;
 
-		FlickerGage.SetActive ( InGameParameter.CharacterChangeGage == 100 );
+		FlickerGage.SetActive ( InGameParameter.CharacterChangeGage >= 100 );
 		Bomb.SetActive ( InGameParameter.CharacterHasBomb );
 
 		Sprite powerLevelSprite = null;
@@ -52,5 +54,17 @@ public class GameUIController : MonoBehaviour {
 		PowerLevel.GetComponent<SpriteRenderer> ().sprite = powerLevelSprite;
 
 		PointFont.GetComponent<ShFont> ().Value = InGameParameter.CurrentPoint;
+	}
+
+	public void DoBomb ()
+	{
+		if ( !InGameParameter.CharacterHasBomb ) return;
+
+	}
+
+	public void DoChange ()
+	{
+		if ( InGameParameter.CharacterChangeGage < 100 ) return;
+
 	}
 }

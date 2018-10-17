@@ -32,6 +32,7 @@ public class BossController : MonoBehaviour {
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = collision.transform.position;
 
 			InGameParameter.CurrentPoint += 2;
+			InGameParameter.CharacterChangeGage += 1;
 
 			HitPoint -= 2;
 			if ( HitPoint <= 0 )

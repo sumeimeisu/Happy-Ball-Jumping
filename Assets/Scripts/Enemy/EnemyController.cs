@@ -42,6 +42,7 @@ public class EnemyController : MonoBehaviour {
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
 			Destroy ( gameObject );
 			InGameParameter.CurrentPoint += OutRangeDamage;
+			InGameParameter.CharacterChangeGage += 4;
 		}
 	}
 }

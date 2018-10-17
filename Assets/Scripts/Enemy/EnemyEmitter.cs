@@ -14,15 +14,22 @@ public class EnemyEmitter : MonoBehaviour {
 	[SerializeField]
 	public TextAsset StageInformation;
 
+	[SerializeField]
+	public GameObject NextStage;
+
 	float elapsedTime;
 
 	struct StageItem { public bool IsBoss; public float Position, Angle, RaiseTime; }
 	Queue<StageItem> stageItems = new Queue<StageItem> ();
+	string bossName;
+
+	bool createdNextStage = false;
+	string nextStageName;
 
 	// Use this for initialization
 	void Start () {
 
-		Regex monsterItem = new Regex ( "m ([0-9]+) ([0-9]+) ([0-9]+)" );
+		Regex monsterItem = new Regex ( "m (-?[0-9]+) (-?[0-9]+) ([0-9]+)" );
 		Regex bossItem = new Regex ( "b ([0-9]+)" );
 
 		string [] lines = StageInformation.text.Split ( '\n' );
@@ -69,11 +76,45 @@ public class EnemyEmitter : MonoBehaviour {
 				GameObject mob = Instantiate ( currentItem.IsBoss ? EmittionBoss : EmittionEnemy );
 				mob.transform.position = new Vector3 ( currentItem.Position, currentItem.IsBoss ? 5.6f : 4.4f, 0 );
 				if ( !currentItem.IsBoss )
+				{
 					mob.GetComponent<EnemyController> ().Angle = currentItem.Angle;
+				}
+				else
+				{
+					bossName = mob.name;
+					Debug.Log ( bossName );
+				}
 			}
 			else
 				break;
 		} while ( true );
 
+		if ( stageItems.Count == 0 && GameObject.Find ( bossName ) == null )
+		{
+			//Debug.Log ( "NextStage" );
+			if ( !createdNextStage )
+			{
+				createdNextStage = true;
+
+				if ( NextStage != null )
+				{
+					var nextStage = Instantiate ( NextStage );
+					--nextStage.transform.GetChild ( 0 ).GetComponent<SpriteRenderer> ().sortingOrder;
+					nextStageName = nextStage.name;
+				}
+			}
+
+			var backgroundRenderer = gameObject.transform.GetChild ( 0 ).GetComponent<SpriteRenderer> ();
+			backgroundRenderer.color = new Color ( 1, 1, 1, backgroundRenderer.color.a - ( 0.3f * Time.deltaTime ) );
+			if ( backgroundRenderer.color.a <= 0 )
+			{
+				var nextStage = GameObject.Find ( nextStageName );
+				if ( nextStage != null )
+				{
+					++nextStage.transform.GetChild ( 0 ).GetComponent<SpriteRenderer> ().sortingOrder;
+				}
+				Destroy ( gameObject );
+			}
+		}
 	}
 }
