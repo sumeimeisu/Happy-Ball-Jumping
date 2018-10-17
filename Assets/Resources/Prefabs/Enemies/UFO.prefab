@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4024912316141068}
   - component: {fileID: 212891013409211394}
   - component: {fileID: 114901412788527768}
+  - component: {fileID: 114298659373292080}
   - component: {fileID: 58666297664372946}
   - component: {fileID: 50917651632593742}
-  - component: {fileID: 114298659373292080}
   m_Layer: 0
   m_Name: UFO
   m_TagString: Enemy
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!58 &58666297664372946
 CircleCollider2D:
   m_ObjectHideFlags: 1

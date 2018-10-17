@@ -10,7 +10,7 @@ public class EnemyController : MonoBehaviour {
 	[SerializeField]
 	public float Angle = 180;
 	[SerializeField]
-	public float Speed = 1.2f;
+	public float Speed = 1f;
 
 	[SerializeField]
 	public int OutRangeDamage = 2;
@@ -25,7 +25,8 @@ public class EnemyController : MonoBehaviour {
 	{
 		if ( !NoRotation )
 			gameObject.transform.rotation = Quaternion.AngleAxis ( Angle, new Vector3 ( 0, 0, 1 ) );
-		gameObject.transform.position += new Vector3 ( Mathf.Sin ( Angle / 180 * Mathf.PI ), Mathf.Cos ( Angle / 180 * Mathf.PI ) ) * Time.deltaTime * Speed;
+		float radian = Angle / 180 * Mathf.PI;
+		gameObject.transform.position += new Vector3 ( Mathf.Sin ( radian ), Mathf.Cos ( radian ), 0 ) * Speed * Time.deltaTime;
 
 		if ( gameObject.transform.position.y < -4.6 )
 		{

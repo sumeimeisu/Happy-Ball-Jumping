@@ -62,6 +62,9 @@ public class CharSelectButtonClick : MonoBehaviour {
 			ClickRight ();
 		if ( Input.GetKeyUp ( KeyCode.Space ) || Input.GetKeyUp ( KeyCode.Return ) )
 			ClickStand ();
+		
+		if ( Input.GetKeyUp ( KeyCode.Escape ) || Input.GetKeyUp ( KeyCode.Backspace ) )
+			Initiate.Fade ( "Scenes/MenuScene", Color.black, 0.8f );
 	}
 
 	public void ClickStand ()

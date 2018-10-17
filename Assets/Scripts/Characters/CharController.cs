@@ -25,7 +25,7 @@ public class CharController : MonoBehaviour {
 			if ( Time.timeScale == 0 )
 				return;
 
-			Instantiate ( InGamePopupMenu );
+			Instantiate ( InGamePopupMenu, GameObject.Find ( "UIFrame" ).transform );
 
 			Time.timeScale = 0;
 			return;

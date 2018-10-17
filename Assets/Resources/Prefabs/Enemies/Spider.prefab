@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4047322186377400}
   - component: {fileID: 212579628524061408}
   - component: {fileID: 114617976162653060}
+  - component: {fileID: 114910160932603722}
   - component: {fileID: 58992746734695376}
   - component: {fileID: 50540924851472686}
-  - component: {fileID: 114910160932603722}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Enemy
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 3
 --- !u!58 &58992746734695376
 CircleCollider2D:
   m_ObjectHideFlags: 1

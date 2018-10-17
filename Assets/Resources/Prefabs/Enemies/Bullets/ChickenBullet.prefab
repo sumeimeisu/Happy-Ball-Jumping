@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 114303674131826070}
   - component: {fileID: 58177287922492326}
   - component: {fileID: 50988424165999580}
+  - component: {fileID: 114262641770905890}
   m_Layer: 0
   m_Name: ChickenBullet
-  m_TagString: Untagged
+  m_TagString: Enemy Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +51,7 @@ Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098727706603296}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &114262641770905890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1098727706603296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d005d1106bbcf164b8f1916365893b12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114303674131826070
 MonoBehaviour:
   m_ObjectHideFlags: 1

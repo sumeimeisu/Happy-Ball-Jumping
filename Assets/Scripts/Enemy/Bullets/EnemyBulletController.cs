@@ -19,9 +19,11 @@ public class EnemyBulletController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		gameObject.transform.rotation = Quaternion.AngleAxis ( Angle, new Vector3 ( 0, 0, 1 ) );
-		gameObject.transform.position += new Vector3 ( Mathf.Sin ( Angle / 180 * Mathf.PI ), Mathf.Cos ( Angle / 180 * Mathf.PI ) ) * Time.deltaTime * Speed;
+		float radian = Angle / 180 * Mathf.PI;
+		gameObject.transform.position += new Vector3 ( Mathf.Sin ( radian ), Mathf.Cos ( radian ), 0 ) * Speed * Time.deltaTime;
 
-		if ( gameObject.transform.position.y < -4.8 )
+		if ( gameObject.transform.position.y < -4.8 || gameObject.transform.position.y > 4.8
+			|| gameObject.transform.position.x < -2.4 || gameObject.transform.position.x > 2.4 )
 			Destroy ( gameObject );
 	}
 

@@ -17,7 +17,14 @@ public class MenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if ( Input.GetKeyUp ( KeyCode.Escape ) || Input.GetKeyUp ( KeyCode.Backspace ) )
+		{
+			if ( GameObject.Find ( "HelpPopup(Clone)" ) != null )
+				GameObject.Find ( "HelpPopup(Clone)" ).GetComponent<MenuHelpController> ().Close ();
+			else if ( GameObject.Find ( "OptionPopup(Clone)" ) != null )
+				GameObject.Find ( "OptionPopup(Clone)" ).GetComponent<MenuOptionController> ().Close ();
+			else DoExit ();
+		}
 	}
 
 	public void DoPlay ()

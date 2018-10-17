@@ -27,13 +27,13 @@ public class BackObjectEmitter : MonoBehaviour {
 			if ( gameObject.transform.childCount < 20 )
 			{
 				if ( EmittingSprite2 == null )
-					Instantiate ( EmittingSprite1, gameObject.transform );
+					Instantiate ( EmittingSprite1 );
 				else
 				{
 					if ( Random.Range ( 0, 100 ) % 2 == 0 )
-						Instantiate ( EmittingSprite2, gameObject.transform );
+						Instantiate ( EmittingSprite2 );
 					else
-						Instantiate ( EmittingSprite1, gameObject.transform );
+						Instantiate ( EmittingSprite1 );
 				}
 			}
 
