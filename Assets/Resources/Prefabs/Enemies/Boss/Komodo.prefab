@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114430790924755922}
   - component: {fileID: 58019911512857192}
   - component: {fileID: 50879858634304866}
-  - component: {fileID: 114977730733512628}
+  - component: {fileID: 114767753506365852}
   m_Layer: 0
   m_Name: Komodo
   m_TagString: Enemy
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoppingPosition: 2
   HitPoint: 100
---- !u!114 &114977730733512628
+--- !u!114 &114767753506365852
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148558828065482}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3461c539e871eb142bbc3b8a6e54b778, type: 3}
+  m_Script: {fileID: 11500000, guid: 3be12c5168150314a9ee497f757ce56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212470294944832148

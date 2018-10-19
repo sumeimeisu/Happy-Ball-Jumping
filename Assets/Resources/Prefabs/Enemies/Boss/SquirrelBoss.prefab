@@ -24,9 +24,9 @@ GameObject:
   - component: {fileID: 114487976666721776}
   - component: {fileID: 58048157286703438}
   - component: {fileID: 50066308241766286}
-  - component: {fileID: 114669513398978262}
+  - component: {fileID: 114401465836565950}
   m_Layer: 0
-  m_Name: Squirrel
+  m_Name: SquirrelBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,6 +98,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114401465836565950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1579461821976408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b628eaa4380f9744b64d7a733fb8fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114487976666721776
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,17 +122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StoppingPosition: 2
   HitPoint: 100
---- !u!114 &114669513398978262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1579461821976408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3461c539e871eb142bbc3b8a6e54b778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212237608478312334
 SpriteRenderer:
   m_ObjectHideFlags: 1

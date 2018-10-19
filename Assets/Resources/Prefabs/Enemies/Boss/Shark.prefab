@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114802284567059642}
   - component: {fileID: 58611489826977206}
   - component: {fileID: 50776731620186688}
-  - component: {fileID: 114495203229887812}
+  - component: {fileID: 114020654946585524}
   m_Layer: 0
   m_Name: Shark
   m_TagString: Enemy
@@ -98,7 +98,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114495203229887812
+--- !u!114 &114020654946585524
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1042809575457794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3461c539e871eb142bbc3b8a6e54b778, type: 3}
+  m_Script: {fileID: 11500000, guid: ae11b9851fe2e6e469acc1ee4595c5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114802284567059642
