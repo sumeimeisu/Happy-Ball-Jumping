@@ -22,7 +22,7 @@ public class ImageFlicker : MonoBehaviour {
 		{
 			var imageComp = gameObject.GetComponent<Image> ();
 			imageComp.color = new Color ( 1, 1, 1,
-				( imageComp.color.a - 1 ) <= float.Epsilon ? 0 : 1 );
+				Mathf.Abs ( 1 - imageComp.color.a ) <= float.Epsilon ? 0 : 1 );
 
 			elapsedTime -= FLICKER_TIME;
 		}

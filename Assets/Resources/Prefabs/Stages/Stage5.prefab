@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmittionEnemy: {fileID: 1678465926508878, guid: b973d6261cd8dbb4680cf1a0f6a680c2,
     type: 2}
-  EmittionBoss: {fileID: 1110727702796212, guid: 5fcb3cbae7bae494f81417e3b3eec177,
+  EmittionBoss: {fileID: 1148558828065482, guid: d2d5853ef7ba96a4c9a0f4a0d143abb9,
     type: 2}
   StageInformation: {fileID: 4900000, guid: 5f037a8a24d8bdc478f312ef2e5a9949, type: 3}
   NextStage: {fileID: 1692605989954320, guid: 57bc889bfdc89b34f852c8247095a995, type: 2}

@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EmittionEnemy: {fileID: 1702247851341960, guid: ad7a808b94c81de4f85b4cff6e9889a5,
     type: 2}
-  EmittionBoss: {fileID: 1110727702796212, guid: 5fcb3cbae7bae494f81417e3b3eec177,
+  EmittionBoss: {fileID: 1626175022191628, guid: bca5ed64d1b9a99409ae628a765d34a8,
     type: 2}
   StageInformation: {fileID: 4900000, guid: 161c87bc29c833749acde08a8ddcb3e6, type: 3}
   NextStage: {fileID: 1236627038049482, guid: de02f279863ad2447b7395ac569700d7, type: 2}
