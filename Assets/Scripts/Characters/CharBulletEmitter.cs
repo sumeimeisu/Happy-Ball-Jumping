@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Static;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -21,7 +22,25 @@ public class CharBulletEmitter : MonoBehaviour {
 		elapsedTime += Time.deltaTime;
 		if ( elapsedTime >= EmittionDistance )
 		{
-			GameObject created = Instantiate ( BulletLv1 );
+			GameObject created = null;
+			switch ( InGameParameter.CharacterPowerLevel )
+			{
+				case 1:
+					created = Instantiate ( BulletLv1 );
+					break;
+				case 2:
+					created = Instantiate ( BulletLv2 );
+					break;
+				case 3:
+					created = Instantiate ( BulletLv3 );
+					break;
+				case 4:
+					created = Instantiate ( BulletLv4 );
+					break;
+				case 5:
+					created = Instantiate ( BulletLv5 );
+					break;
+			}
 			created.transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
 			elapsedTime -= EmittionDistance;
 		}

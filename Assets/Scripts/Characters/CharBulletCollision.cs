@@ -19,17 +19,13 @@ public class CharBulletCollision : MonoBehaviour {
 	{
 		if ( collision.gameObject.tag == "Enemy" )
 		{
-			InGameParameter.CurrentPoint -= collision.gameObject.GetComponent<EnemyController> ().OutRangeDamage;
+			InGameParameter.DiscountPoint ( 0, collision.gameObject.GetComponent<EnemyController> ().OutRangeDamage );
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
 		}
 		else if ( collision.gameObject.tag == "Enemy Bullet" )
 		{
-			InGameParameter.CharacterHitPoint -= collision.gameObject.GetComponent<EnemyBulletController> ().Damage;
-			InGameParameter.CurrentPoint -= collision.gameObject.GetComponent<EnemyBulletController> ().Damage;
+			InGameParameter.DiscountPoint ( collision.gameObject.GetComponent<EnemyBulletController> ().Damage );
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
 		}
-
-		if ( InGameParameter.CurrentPoint < 0 )
-			InGameParameter.CurrentPoint = 0;
 	}
 }

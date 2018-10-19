@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBulletController : MonoBehaviour {
 
 	[SerializeField]
-	public float Angle = 180;
+	public float Angle = 270;
 	[SerializeField]
 	public float Speed = 2f;
 	[SerializeField]
@@ -18,9 +18,9 @@ public class EnemyBulletController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		gameObject.transform.rotation = Quaternion.AngleAxis ( Angle, new Vector3 ( 0, 0, 1 ) );
+		gameObject.transform.rotation = Quaternion.AngleAxis ( Angle - 90, new Vector3 ( 0, 0, 1 ) );
 		float radian = Angle / 180 * Mathf.PI;
-		gameObject.transform.position += new Vector3 ( Mathf.Sin ( radian ), Mathf.Cos ( radian ), 0 ) * Speed * Time.deltaTime;
+		gameObject.transform.position += new Vector3 ( Mathf.Cos ( radian ), Mathf.Sin ( radian ), 0 ) * Speed * Time.deltaTime;
 
 		if ( gameObject.transform.position.y < -4.8 || gameObject.transform.position.y > 4.8
 			|| gameObject.transform.position.x < -2.4 || gameObject.transform.position.x > 2.4 )

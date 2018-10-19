@@ -70,11 +70,7 @@ public class CharSelectButtonClick : MonoBehaviour {
 	public void ClickStand ()
 	{
 		InGameParameter.CharacterType = ( CharacterType ) selectIndex;
-		InGameParameter.CharacterHitPoint = 30;
-		InGameParameter.CharacterChangeGage = 0;
-		InGameParameter.CharacterHasBomb = false;
-		InGameParameter.CharacterPowerLevel = 1;
-		InGameParameter.CurrentPoint = 0;
+		InGameParameter.Initialize ();
 		Initiate.Fade ( "Scenes/IntroScene", Color.black, 0.8f );
 	}
 

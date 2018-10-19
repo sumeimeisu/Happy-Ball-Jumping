@@ -30,15 +30,12 @@ public class BossController : MonoBehaviour {
 		if ( collision.gameObject.tag == "Player Bullet" )
 		{
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = collision.transform.position;
-
-			InGameParameter.CurrentPoint += 2;
-			InGameParameter.CharacterChangeGage += 1;
+			
+			InGameParameter.EncountPoint ( 1, 2 );
 
 			HitPoint -= 2;
 			if ( HitPoint <= 0 )
-			{
 				Destroy ( gameObject );
-			}
 		}
 	}
 }

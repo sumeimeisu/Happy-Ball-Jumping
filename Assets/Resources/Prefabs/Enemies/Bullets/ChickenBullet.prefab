@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc0090c033db7d4eaef6f85ab4e7428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Angle: 180
+  Angle: 270
   Speed: 1.2
   Damage: 5
 --- !u!212 &212266751282936134

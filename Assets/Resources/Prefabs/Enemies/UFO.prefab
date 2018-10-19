@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NoRotation: 1
-  Angle: 180
+  Angle: 270
   Speed: 1
   OutRangeDamage: 2
 --- !u!212 &212891013409211394
