@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoppingPosition: 2
-  HitPoint: 100
+  HitPoint: 400
 --- !u!212 &212037415345117418
 SpriteRenderer:
   m_ObjectHideFlags: 1

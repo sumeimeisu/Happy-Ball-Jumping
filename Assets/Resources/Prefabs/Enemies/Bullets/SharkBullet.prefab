@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Angle: 270
-  Speed: 1.2
-  Damage: 5
+  Speed: 1.8
+  Damage: 2
 --- !u!212 &212546840183596928
 SpriteRenderer:
   m_ObjectHideFlags: 1

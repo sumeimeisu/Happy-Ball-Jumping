@@ -92,6 +92,7 @@ MonoBehaviour:
   Angle: 270
   Speed: 1.2
   Damage: 5
+  FollowPlayer: 1
 --- !u!212 &212341317038687494
 SpriteRenderer:
   m_ObjectHideFlags: 1

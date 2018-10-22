@@ -6,7 +6,7 @@ public class SquirrelBulletEmitter : MonoBehaviour {
 
 	GameObject bullet;
 	float elapsedTime;
-	float angle;
+	float angle = 45;
 
 	// Use this for initialization
 	void Start () {
@@ -17,11 +17,18 @@ public class SquirrelBulletEmitter : MonoBehaviour {
 	void Update () {
 		elapsedTime += Time.deltaTime;
 
-		if ( elapsedTime >= 0.2f )
+		if ( elapsedTime >= 0.3f )
 		{
 			Instantiate ( bullet ).GetComponent<EnemyBulletController> ().Angle = angle;
-			angle += 10;
-			elapsedTime -= 0.2f;
+			Instantiate ( bullet ).GetComponent<EnemyBulletController> ().Angle = angle + 90;
+			Instantiate ( bullet ).GetComponent<EnemyBulletController> ().Angle = angle + 180;
+			Instantiate ( bullet ).GetComponent<EnemyBulletController> ().Angle = angle + 270;
+
+			angle -= 200 * Time.deltaTime;
+			if ( angle < 0 )
+				angle += 360;
+
+			elapsedTime -= 0.3f;
 		}
 	}
 }

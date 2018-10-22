@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StoppingPosition: 2
-  HitPoint: 100
+  HitPoint: 500
 --- !u!114 &114678851265713018
 MonoBehaviour:
   m_ObjectHideFlags: 1

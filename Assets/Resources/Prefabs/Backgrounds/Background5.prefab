@@ -53,10 +53,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EmittionDistance: 0.3
-  EmittingSprite1: {fileID: 1738996215960178, guid: a808cdaeacc154543afb0400bb30cb76,
+  EmittingSprite1: {fileID: 1138727818991554, guid: b0917aa12c31e4641863476cd2b50b3a,
     type: 2}
-  EmittingSprite2: {fileID: 1389128692566336, guid: 54a54943e61141441892ddfbc6596777,
-    type: 2}
+  EmittingSprite2: {fileID: 0}
 --- !u!212 &212675240309886660
 SpriteRenderer:
   m_ObjectHideFlags: 1
