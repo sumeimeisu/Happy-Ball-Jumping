@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Static;
+﻿using Assets.Scripts.Characters;
+using Assets.Scripts.Static;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,32 @@ public class CharController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
+		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+		Animator animator = gameObject.GetComponent<Animator> ();
+
+		switch ( InGameParameter.CharacterType )
+		{
+			case CharacterType.Remein:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/remein/remein_normal" );
+				break;
+
+			case CharacterType.Airsell:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/airsell/airsell_normal" );
+				break;
+
+			case CharacterType.Calix:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/calix/calix_normal" );
+				break;
+
+			case CharacterType.Sentrik:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/sentrik/sentrik_normal" );
+				break;
+
+			case CharacterType.Gloria:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/gloria/gloria_normal" );
+				break;
+		}
 	}
 
 	Vector3 lastMousePos;

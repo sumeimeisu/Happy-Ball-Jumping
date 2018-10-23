@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Effect
   - UI Popup
+  - Item
   layers:
   - Default
   - TransparentFX

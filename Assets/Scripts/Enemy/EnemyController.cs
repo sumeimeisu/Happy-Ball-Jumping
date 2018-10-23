@@ -40,6 +40,25 @@ public class EnemyController : MonoBehaviour {
 		if ( collision.gameObject.tag == "Player Bullet" )
 		{
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
+			
+			if ( Random.Range ( 0, 100 ) % 7 == 0 )
+			{
+				switch ( Random.Range ( 0, 10 ) % 3 )
+				{
+					case 0:
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Items/BombItem" ) ).transform.position = gameObject.transform.position;
+						break;
+
+					case 1:
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Items/HpUpItem" ) ).transform.position = gameObject.transform.position;
+						break;
+
+					case 2:
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Items/LvUpItem" ) ).transform.position = gameObject.transform.position;
+						break;
+				}
+			}
+
 			Destroy ( gameObject );
 			InGameParameter.EncountPoint ( 4, OutRangeDamage );
 		}

@@ -40,7 +40,7 @@ public class EnemyBulletController : MonoBehaviour {
 
 	void OnCollisionEnter2D ( Collision2D collision )
 	{
-		if ( collision.gameObject.tag == "Player" )
+		if ( collision.gameObject.tag == "Player" && collision.gameObject.name == "HeroCollisionCircle" )
 			Destroy ( gameObject );
 	}
 }

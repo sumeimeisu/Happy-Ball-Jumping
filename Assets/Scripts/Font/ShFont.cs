@@ -20,6 +20,7 @@ public class ShFont : MonoBehaviour {
 		for ( int i = 0; i < 8; ++i )
 		{
 			var num = new GameObject ( i.ToString () );
+			num.name = "__FontOrder" + i;
 			num.transform.Translate ( -1.76f / 2 + ( 0.22f * i ) + 0.22f / 2, 0, 0 );
 			var component = num.AddComponent<SpriteRenderer> ();
 			switch ( intToText [ i ] )
@@ -56,7 +57,9 @@ public class ShFont : MonoBehaviour {
 		string intToText = Value.ToString ().PadLeft ( 8, '0' );
 		for ( int i = 0; i < 8; ++i )
 		{
-			var component = innerObjects [ i ].GetComponent<SpriteRenderer> ();
+			var component = innerObjects [ i ]?.GetComponent<SpriteRenderer> ();
+			if ( component == null )
+				component = ( innerObjects [ i ] = gameObject.transform.Find ( "__FontOrder" + i ).gameObject ).GetComponent<SpriteRenderer> ();
 			switch ( intToText [ i ] )
 			{
 				case '0': component.sprite = S_0; break;

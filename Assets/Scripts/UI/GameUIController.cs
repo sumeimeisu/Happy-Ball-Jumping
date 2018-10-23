@@ -40,7 +40,7 @@ public class GameUIController : MonoBehaviour {
 		Gage.GetComponent<Image> ().fillAmount = InGameParameter.CharacterChangeGage / 100.0f;
 
 		FlickerGage.SetActive ( InGameParameter.CharacterChangeGage >= 100 );
-		Bomb.SetActive ( InGameParameter.CharacterHasBomb );
+		Bomb.SetActive ( InGameParameter.CharacterHasBomb || InGameParameter.IsCharacterChanged );
 
 		Sprite powerLevelSprite = null;
 		switch ( InGameParameter.CharacterPowerLevel )
