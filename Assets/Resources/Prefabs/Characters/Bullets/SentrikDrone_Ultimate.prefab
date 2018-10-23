@@ -54,11 +54,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EmittionDistance: 0.2
-  BulletLv1: {fileID: 1663855465369172, guid: fdd95fedb17a681438a7daeb593ee71d, type: 2}
-  BulletLv2: {fileID: 1663855465369172, guid: fdd95fedb17a681438a7daeb593ee71d, type: 2}
-  BulletLv3: {fileID: 1663855465369172, guid: fdd95fedb17a681438a7daeb593ee71d, type: 2}
-  BulletLv4: {fileID: 1663855465369172, guid: fdd95fedb17a681438a7daeb593ee71d, type: 2}
-  BulletLv5: {fileID: 1663855465369172, guid: fdd95fedb17a681438a7daeb593ee71d, type: 2}
+  IsUltimateStatus: 0
 --- !u!114 &114598756735442550
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -104,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5524c6fafcbcf1d4b9254ced596cdc48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
