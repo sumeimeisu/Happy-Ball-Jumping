@@ -60,6 +60,7 @@ public class GameUIController : MonoBehaviour {
 	{
 		if ( !InGameParameter.CharacterHasBomb ) return;
 
+		GameObject.Find ( "Character" ).GetComponent<CharBulletEmitter> ().SendMessage ( "DoBomb" );
 	}
 
 	public void DoChange ()

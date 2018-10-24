@@ -13,8 +13,7 @@ public class CharController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer> ();
+		
 		Animator animator = gameObject.GetComponent<Animator> ();
 
 		switch ( InGameParameter.CharacterType )

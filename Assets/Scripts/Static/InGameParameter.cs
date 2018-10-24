@@ -9,11 +9,11 @@ namespace Assets.Scripts.Static
 {
 	public static class InGameParameter
 	{
-		public static CharacterType CharacterType;
+		public static CharacterType CharacterType = CharacterType.Gloria;
 		public static int CharacterHitPoint = 30;
-		public static int CharacterChangeGage = 0;
+		public static float CharacterChangeGage = 0;
 		public static bool CharacterHasBomb = false;
-		public static int CharacterPowerLevel = 1;
+		public static int CharacterPowerLevel = 4;
 		public static bool IsCharacterChanged = false;
 
 		public static int CurrentPoint = 0;

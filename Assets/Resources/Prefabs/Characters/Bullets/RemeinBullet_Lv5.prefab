@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7da8efa5d793524896e83e93ae6e0fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Angle: 90
+  Rotation: 0
 --- !u!212 &212725226987518862
 SpriteRenderer:
   m_ObjectHideFlags: 1

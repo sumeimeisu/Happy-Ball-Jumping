@@ -12,6 +12,9 @@ public class CharBulletEmitter : MonoBehaviour {
 	GameObject BulletLv1, BulletLv2, BulletLv3, BulletLv4, BulletLv5;
 	float elapsedTime = 0;
 
+	bool doBomb = false;
+	float bombElapsedTime = 0;
+
 	[SerializeField]
 	public bool IsUltimateStatus = false;
 
@@ -57,27 +60,143 @@ public class CharBulletEmitter : MonoBehaviour {
 		elapsedTime += Time.deltaTime;
 		if ( elapsedTime >= EmittionDistance )
 		{
-			GameObject created = null;
-			switch ( InGameParameter.CharacterPowerLevel )
+			bool dontEmitBullet = false;
+			if ( doBomb )
 			{
-				case 1:
-					created = Instantiate ( BulletLv1 );
-					break;
-				case 2:
-					created = Instantiate ( BulletLv2 );
-					break;
-				case 3:
-					created = Instantiate ( BulletLv3 );
-					break;
-				case 4:
-					created = Instantiate ( BulletLv4 );
-					break;
-				case 5:
-					created = Instantiate ( BulletLv5 );
-					break;
+				bombElapsedTime += Time.deltaTime;
+				if ( bombElapsedTime > 5 )
+					doBomb = false;
+				else
+				{
+					switch ( InGameParameter.CharacterType )
+					{
+						case CharacterType.Remein:
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -0.8f, 0.7f, 0 );
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0.8f, 0.7f, 0 );
+							dontEmitBullet = true;
+							break;
+
+						case CharacterType.Airsell:
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -1.2f, 0.7f, 0 );
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 1.2f, 0.7f, 0 );
+							dontEmitBullet = true;
+							break;
+
+						case CharacterType.Calix:
+							break;
+
+						case CharacterType.Sentrik:
+							var child = gameObject.transform.Find ( "CalixShield_Ultimate" );
+							if ( child == null )
+								child = gameObject.transform.Find ( "CalixShield_Ultimate(Clone)" );
+							if ( child != null )
+								child.GetComponent<CalixBarrierController> ().HitPoint = 3;
+							else
+								Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/CalixShield_Ultimate" ), gameObject.transform );
+
+							doBomb = false;
+							break;
+
+						case CharacterType.Gloria:
+							break;
+					}
+				}
 			}
-			created.transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+
+			if ( !dontEmitBullet )
+			{
+				int powerLevel = InGameParameter.CharacterPowerLevel;
+				if ( InGameParameter.IsCharacterChanged )
+					powerLevel = 5;
+
+				Vector3 yOffset = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+				GameObject created = null;
+				switch ( powerLevel )
+				{
+					case 1:
+						created = Instantiate ( BulletLv1 );
+						break;
+					case 2:
+						created = Instantiate ( BulletLv2 );
+						break;
+					case 3:
+						created = Instantiate ( BulletLv3 );
+						break;
+					case 4:
+						created = Instantiate ( BulletLv4 );
+						break;
+					case 5:
+						created = Instantiate ( BulletLv5 );
+						break;
+				}
+				created.transform.position = yOffset;
+
+				if ( InGameParameter.CharacterType == CharacterType.Gloria )
+				{
+					switch ( powerLevel )
+					{
+						case 2:
+							created.GetComponent<PlayerBulletController>().Angle += -15;
+							created = Instantiate ( BulletLv2 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 15;
+							break;
+
+						case 3:
+							created = Instantiate ( BulletLv3 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += -20;
+							created = Instantiate ( BulletLv3 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 20;
+							break;
+
+						case 4:
+							created.GetComponent<PlayerBulletController> ().Angle += -15;
+							created = Instantiate ( BulletLv4 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += -5;
+							created = Instantiate ( BulletLv4 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 5;
+							created = Instantiate ( BulletLv4 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 15;
+							break;
+
+						case 5:
+							created = Instantiate ( BulletLv5 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += -20;
+							created = Instantiate ( BulletLv5 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += -10;
+							created = Instantiate ( BulletLv5 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 10;
+							created = Instantiate ( BulletLv5 );
+							created.transform.position = yOffset;
+							created.GetComponent<PlayerBulletController> ().Angle += 20;
+							break;
+					}
+				}
+			}
+
 			elapsedTime -= EmittionDistance;
 		}
+	}
+
+	void DoBomb ()
+	{
+		if ( !( InGameParameter.CharacterHasBomb || InGameParameter.IsCharacterChanged )
+			|| doBomb )
+			return;
+		
+		doBomb = true;
+		bombElapsedTime = 0;
+
+		InGameParameter.CharacterHasBomb = false;
 	}
 }
