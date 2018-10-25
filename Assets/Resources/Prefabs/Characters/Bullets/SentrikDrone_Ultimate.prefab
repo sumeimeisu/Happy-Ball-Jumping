@@ -20,8 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4832243636589806}
   - component: {fileID: 212410802282867516}
-  - component: {fileID: 114598756735442550}
-  - component: {fileID: 114178199320582210}
+  - component: {fileID: 114924295756928760}
   m_Layer: 0
   m_Name: SentrikDrone_Ultimate
   m_TagString: Untagged
@@ -42,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114178199320582210
+--- !u!114 &114924295756928760
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50,22 +49,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1250069931445804}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db82c89f1fb85043ae0343d05d841f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 25af0f051a4308041bf21db6c1f10503, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EmittionDistance: 0.2
-  IsUltimateStatus: 0
---- !u!114 &114598756735442550
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250069931445804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7da8efa5d793524896e83e93ae6e0fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  EmittionDistance: 0.3
 --- !u!212 &212410802282867516
 SpriteRenderer:
   m_ObjectHideFlags: 1

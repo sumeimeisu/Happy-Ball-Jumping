@@ -20,13 +20,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4231462576012792}
   - component: {fileID: 212703091562581022}
-  - component: {fileID: 114851999929591362}
+  - component: {fileID: 114601136784162058}
   - component: {fileID: 114151026816851858}
   - component: {fileID: 70809432237724818}
   - component: {fileID: 50753793750573534}
   m_Layer: 0
   m_Name: GloriaBullet_Ultimate
-  m_TagString: Untagged
+  m_TagString: Player Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b5ba6cbacb8eeb4f9982edeed37d246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114851999929591362
+--- !u!114 &114601136784162058
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,9 +98,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426686331624214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7da8efa5d793524896e83e93ae6e0fb, type: 3}
+  m_Script: {fileID: 11500000, guid: d34247bde7b648641818ea3dea5af356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Angle: 90
+  Rotation: 1
 --- !u!212 &212703091562581022
 SpriteRenderer:
   m_ObjectHideFlags: 1

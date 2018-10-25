@@ -40,7 +40,8 @@ public class EnemyBulletController : MonoBehaviour {
 
 	void OnCollisionEnter2D ( Collision2D collision )
 	{
-		if ( collision.gameObject.tag == "Player" && collision.gameObject.name == "HeroCollisionCircle" )
+		if ( collision.gameObject.tag == "Player"
+			&& ( collision.gameObject.name == "HeroCollisionCircle" || collision.gameObject.name.Contains ( "CalixShield_Ultimate" ) ) )
 			Destroy ( gameObject );
 	}
 }

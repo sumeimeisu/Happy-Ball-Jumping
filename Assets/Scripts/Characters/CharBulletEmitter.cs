@@ -57,51 +57,61 @@ public class CharBulletEmitter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if ( doBomb )
+		{
+			bombElapsedTime += Time.deltaTime;
+			if ( bombElapsedTime > 5 )
+				doBomb = false;
+		}
+
 		elapsedTime += Time.deltaTime;
 		if ( elapsedTime >= EmittionDistance )
 		{
 			bool dontEmitBullet = false;
 			if ( doBomb )
 			{
-				bombElapsedTime += Time.deltaTime;
-				if ( bombElapsedTime > 5 )
-					doBomb = false;
-				else
+				switch ( InGameParameter.CharacterType )
 				{
-					switch ( InGameParameter.CharacterType )
-					{
-						case CharacterType.Remein:
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -0.8f, 0.7f, 0 );
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0.8f, 0.7f, 0 );
-							dontEmitBullet = true;
-							break;
+					case CharacterType.Remein:
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -0.8f, 0.7f, 0 );
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0.8f, 0.7f, 0 );
+						dontEmitBullet = true;
+						break;
 
-						case CharacterType.Airsell:
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -1.2f, 0.7f, 0 );
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
-							Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 1.2f, 0.7f, 0 );
-							dontEmitBullet = true;
-							break;
+					case CharacterType.Airsell:
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( -1.2f, 0.7f, 0 );
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+						Instantiate ( BulletLv5 ).transform.position = gameObject.transform.position + new Vector3 ( 1.2f, 0.7f, 0 );
+						dontEmitBullet = true;
+						break;
 
-						case CharacterType.Calix:
-							break;
+					case CharacterType.Calix:
+						var child = gameObject.transform.Find ( "CalixShield_Ultimate(Clone)" );
+						if ( child != null )
+							child.GetComponent<CalixBarrierController> ().HitPoint = 5;
+						else
+							Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/CalixShield_Ultimate" ), gameObject.transform );
 
-						case CharacterType.Sentrik:
-							var child = gameObject.transform.Find ( "CalixShield_Ultimate" );
-							if ( child == null )
-								child = gameObject.transform.Find ( "CalixShield_Ultimate(Clone)" );
-							if ( child != null )
-								child.GetComponent<CalixBarrierController> ().HitPoint = 3;
-							else
-								Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/CalixShield_Ultimate" ), gameObject.transform );
+						doBomb = false;
+						break;
 
-							doBomb = false;
-							break;
+					case CharacterType.Sentrik:
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/SentrikDrone_Ultimate" ) )
+							.transform.position = new Vector3 ( -1.2f, -4.4f, 0 );
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/SentrikDrone_Ultimate" ) )
+							.transform.position = new Vector3 ( 0, -4.4f, 0 );
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/SentrikDrone_Ultimate" ) )
+							.transform.position = new Vector3 ( 1.2f, -4.4f, 0 );
+						doBomb = false;
+						break;
 
-						case CharacterType.Gloria:
-							break;
-					}
+					case CharacterType.Gloria:
+						Instantiate ( Resources.Load<GameObject> ( "Prefabs/Characters/Bullets/GloriaBullet_Ultimate" ) ).transform.position
+							= gameObject.transform.position + new Vector3 ( 0, 0.7f, 0 );
+						dontEmitBullet = true;
+						break;
 				}
 			}
 
