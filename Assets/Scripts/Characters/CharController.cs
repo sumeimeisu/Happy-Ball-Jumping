@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Characters;
 using Assets.Scripts.Static;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,11 @@ public class CharController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		SetCharacterAnimation ();
+	}
+
+	private void SetCharacterAnimation ()
+	{
 		Animator animator = gameObject.GetComponent<Animator> ();
 
 		switch ( InGameParameter.CharacterType )
@@ -107,5 +112,52 @@ public class CharController : MonoBehaviour {
 			gameObject.transform.position = new Vector3 ( gameObject.transform.position.x, -3.8f );
 		if ( gameObject.transform.position.y >= 3.8f )
 			gameObject.transform.position = new Vector3 ( gameObject.transform.position.x, 3.8f );
+
+		if ( InGameParameter.IsCharacterChanged )
+		{
+			InGameParameter.CharacterChangeGage -= 6 * Time.deltaTime;
+			if ( InGameParameter.CharacterChangeGage <= 0 )
+			{
+				SetCharacterAnimation ();
+				InGameParameter.CharacterChangeGage = 0;
+				InGameParameter.IsCharacterChanged = false;
+				Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/ChangeEffect" ) ).transform.position = gameObject.transform.position;
+			}
+		}
+	}
+
+	void DoChange ()
+	{
+		if ( InGameParameter.CharacterChangeGage < 100 ) return;
+		if ( InGameParameter.IsCharacterChanged ) return;
+		
+		Animator animator = gameObject.GetComponent<Animator> ();
+
+		switch ( InGameParameter.CharacterType )
+		{
+			case CharacterType.Remein:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/remein/remein_changed" );
+				break;
+
+			case CharacterType.Airsell:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/airsell/airsell_changed" );
+				break;
+
+			case CharacterType.Calix:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/calix/calix_changed" );
+				break;
+
+			case CharacterType.Sentrik:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/sentrik/sentrik_changed" );
+				break;
+
+			case CharacterType.Gloria:
+				animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController> ( "Characters/gloria/gloria_changed" );
+				break;
+		}
+
+		Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/ChangeEffect" ) ).transform.position = gameObject.transform.position;
+
+		InGameParameter.IsCharacterChanged = true;
 	}
 }

@@ -43,7 +43,10 @@ public class GameUIController : MonoBehaviour {
 		Bomb.SetActive ( InGameParameter.CharacterHasBomb || InGameParameter.IsCharacterChanged );
 
 		Sprite powerLevelSprite = null;
-		switch ( InGameParameter.CharacterPowerLevel )
+		int powerLevel = InGameParameter.CharacterPowerLevel;
+		if ( InGameParameter.IsCharacterChanged )
+			powerLevel = 5;
+		switch ( powerLevel )
 		{
 			case 1: powerLevelSprite = Lv1; break;
 			case 2: powerLevelSprite = Lv2; break;
@@ -58,7 +61,9 @@ public class GameUIController : MonoBehaviour {
 
 	public void DoBomb ()
 	{
-		if ( !InGameParameter.CharacterHasBomb ) return;
+		if ( !InGameParameter.CharacterHasBomb )
+			if ( !InGameParameter.IsCharacterChanged )
+				return;
 
 		GameObject.Find ( "Character" ).GetComponent<CharBulletEmitter> ().SendMessage ( "DoBomb" );
 	}
@@ -67,5 +72,6 @@ public class GameUIController : MonoBehaviour {
 	{
 		if ( InGameParameter.CharacterChangeGage < 100 ) return;
 
+		GameObject.Find ( "Character" ).GetComponent<CharController> ().SendMessage ( "DoChange" );
 	}
 }

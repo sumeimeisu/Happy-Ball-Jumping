@@ -3,7 +3,20 @@ guid: 72f7559e624c4dc47b1cf130e9abcb2c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - HP1: {instanceID: 0}
+  - HP2: {instanceID: 0}
+  - HP3: {instanceID: 0}
+  - Bomb: {instanceID: 0}
+  - Gage: {instanceID: 0}
+  - FlickerGage: {instanceID: 0}
+  - PowerLevel: {instanceID: 0}
+  - Lv1: {fileID: 21300002, guid: 5ca44af700b949d4682e61488e793a22, type: 3}
+  - Lv2: {fileID: 21300004, guid: 5ca44af700b949d4682e61488e793a22, type: 3}
+  - Lv3: {fileID: 21300006, guid: 5ca44af700b949d4682e61488e793a22, type: 3}
+  - Lv4: {fileID: 21300008, guid: 5ca44af700b949d4682e61488e793a22, type: 3}
+  - Lv5: {fileID: 21300010, guid: 5ca44af700b949d4682e61488e793a22, type: 3}
+  - PointFont: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

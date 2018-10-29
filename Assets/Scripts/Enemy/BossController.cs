@@ -33,7 +33,10 @@ public class BossController : MonoBehaviour {
 			
 			InGameParameter.EncountPoint ( 1, 2 );
 
-			HitPoint -= 2;
+			int powerLevel = InGameParameter.CharacterPowerLevel;
+			if ( InGameParameter.IsCharacterChanged )
+				powerLevel = 5;
+			HitPoint -= powerLevel;
 			if ( HitPoint <= 0 )
 				Destroy ( gameObject );
 		}
