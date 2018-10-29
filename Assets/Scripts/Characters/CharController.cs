@@ -162,6 +162,8 @@ public class CharController : MonoBehaviour {
 
 		Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/ChangeEffect" ) ).transform.position = gameObject.transform.position;
 
+		GetComponent<AudioSource> ().Play ();
+
 		InGameParameter.IsCharacterChanged = true;
 	}
 }

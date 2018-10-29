@@ -71,6 +71,7 @@ public class GameUIController : MonoBehaviour {
 			if ( !InGameParameter.IsCharacterChanged )
 				return;
 
+		GetComponent<AudioSource> ().Play ();
 		GameObject.Find ( "Character" ).GetComponent<CharBulletEmitter> ().SendMessage ( "DoBomb" );
 	}
 
