@@ -23,6 +23,11 @@ public class CharBulletCollision : MonoBehaviour
 	{
 		if ( collision.gameObject.tag == "Enemy Bullet" )
 		{
+			if ( Options.TurnOnAudio )
+				GetComponent<AudioSource> ().Play ();
+			if ( Options.TurnOnVibration )
+				Handheld.Vibrate ();
+
 			InGameParameter.DiscountPoint ( collision.gameObject.GetComponent<EnemyBulletController> ().Damage );
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
 		}
