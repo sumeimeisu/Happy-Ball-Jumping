@@ -25,8 +25,12 @@ public class CharBulletCollision : MonoBehaviour
 		{
 			if ( Options.TurnOnAudio )
 				GetComponent<AudioSource> ().Play ();
+#if UNITY_ANDROID || UNITY_IOS
 			if ( Options.TurnOnVibration )
 				Handheld.Vibrate ();
+#elif UNITY_STANDALONE
+			
+#endif
 
 			InGameParameter.DiscountPoint ( collision.gameObject.GetComponent<EnemyBulletController> ().Damage );
 			Instantiate ( Resources.Load<GameObject> ( "Prefabs/Effects/BoomEffect" ) ).transform.position = gameObject.transform.position;
