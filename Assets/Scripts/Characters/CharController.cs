@@ -50,6 +50,9 @@ public class CharController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if ( InGameParameter.CharacterHitPoint <= 0 )
+			return;
+
 		if ( Input.GetKeyUp ( KeyCode.Backspace ) || Input.GetKeyUp ( KeyCode.Escape ) )
 		{
 			if ( Time.timeScale == 0 )
@@ -128,6 +131,7 @@ public class CharController : MonoBehaviour {
 
 	void DoChange ()
 	{
+		if ( InGameParameter.CharacterHitPoint <= 0 ) return;
 		if ( InGameParameter.CharacterChangeGage < 100 ) return;
 		if ( InGameParameter.IsCharacterChanged ) return;
 		

@@ -17,6 +17,9 @@ public class CharItemCollision : MonoBehaviour {
 
 	void OnCollisionEnter2D ( Collision2D collision )
 	{
+		if ( InGameParameter.CharacterHitPoint <= 0 )
+			return;
+
 		if ( collision.gameObject.tag == "Item" )
 		{
 			switch ( collision.gameObject.name )

@@ -58,6 +58,9 @@ public class CharBulletEmitter : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		if ( InGameParameter.CharacterHitPoint <= 0 )
+			return;
+
 		if ( doBomb )
 		{
 			bombElapsedTime += Time.deltaTime;
@@ -200,6 +203,8 @@ public class CharBulletEmitter : MonoBehaviour {
 
 	void DoBomb ()
 	{
+		if ( InGameParameter.CharacterHitPoint <= 0 )
+			return;
 		if ( !( InGameParameter.CharacterHasBomb || InGameParameter.IsCharacterChanged )
 			|| doBomb )
 			return;

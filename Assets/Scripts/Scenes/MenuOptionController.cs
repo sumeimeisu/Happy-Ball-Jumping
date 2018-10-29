@@ -52,6 +52,8 @@ public class MenuOptionController : MonoBehaviour {
 			image.raycastTarget = true;
 		}
 
+		Options.Save ();
+
 		Destroy ( gameObject );
 	}
 }

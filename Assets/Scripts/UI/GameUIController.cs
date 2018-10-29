@@ -23,6 +23,9 @@ public class GameUIController : MonoBehaviour {
 	[SerializeField]
 	public GameObject PointFont;
 
+	[SerializeField]
+	public GameObject GameOverOverlay;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -57,6 +60,9 @@ public class GameUIController : MonoBehaviour {
 		PowerLevel.GetComponent<SpriteRenderer> ().sprite = powerLevelSprite;
 
 		PointFont.GetComponent<ShFont> ().Value = InGameParameter.CurrentPoint;
+
+		if ( InGameParameter.CharacterHitPoint <= 0 )
+			GameOverOverlay.SetActive ( true );
 	}
 
 	public void DoBomb ()
@@ -73,5 +79,11 @@ public class GameUIController : MonoBehaviour {
 		if ( InGameParameter.CharacterChangeGage < 100 ) return;
 
 		GameObject.Find ( "Character" ).GetComponent<CharController> ().SendMessage ( "DoChange" );
+	}
+
+	public void GoToMenu ()
+	{
+		Time.timeScale = 1;
+		Initiate.Fade ( "MenuScene", Color.black, 0.8f );
 	}
 }

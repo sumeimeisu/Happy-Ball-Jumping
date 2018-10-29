@@ -12,7 +12,7 @@ public class MenuController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Options.Load ();
 	}
 	
 	// Update is called once per frame
