@@ -31,6 +31,7 @@ public class SynopsisTransition : MonoBehaviour {
 		print ( "Skip" );
 		if ( _skipAnimation ) return;
 		_skipAnimation = true;
+		Initiate.DoneFading ();
 		Initiate.Fade ( "Scenes/GameScene", Color.black, 0.8f );
 	}
 }
