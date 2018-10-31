@@ -71,6 +71,7 @@ public class CharSelectButtonClick : MonoBehaviour {
 	{
 		InGameParameter.CharacterType = ( CharacterType ) selectIndex;
 		InGameParameter.Initialize ();
+		Debug.Log ( InGameParameter.CharacterType );
 		Initiate.Fade ( "Scenes/IntroScene", Color.black, 0.8f );
 	}
 

@@ -21,6 +21,8 @@ public class CharController : MonoBehaviour {
 	{
 		Animator animator = gameObject.GetComponent<Animator> ();
 
+		Debug.Log ( InGameParameter.CharacterType );
+
 		switch ( InGameParameter.CharacterType )
 		{
 			case CharacterType.Remein:
