@@ -45,7 +45,7 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
-![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1188.PNG)
-![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1189.PNG)
-![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1190.PNG)
+*.![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1188.PNG)
+*.![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1189.PNG)
+*.![image](http://github.com/sumeimeisu/Happy-Ball-Jumping/raw/master/images/IMG_1190.PNG)
 
