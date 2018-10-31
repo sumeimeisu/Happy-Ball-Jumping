@@ -1,5 +1,5 @@
-# ShootingHero
-Shooting Hero Unity porting Project
+# Happy-Ball-Jumping
+Happy-Ball-Jumping Unity porting Project
 
 ###
 # Unity folders and files
